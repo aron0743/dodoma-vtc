@@ -182,6 +182,7 @@ h6 {
   }
 }
 
+
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
@@ -225,6 +226,18 @@ h6 {
 ------------------------------*/
 .scrolled .header {
   --background-color: rgba(0, 0, 0, 0.8);
+}
+/* Add this after your existing header styles */
+.header .logo h1.sitename {
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #f09205, #f17006, #e1f00d);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 /*--------------------------------------------------------------
