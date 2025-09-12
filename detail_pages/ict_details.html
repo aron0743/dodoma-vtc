@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrical Installation Course - Dodoma VTC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4e54c8;
+            --primary-dark: #3f42b6;
+            --secondary: #6c757d;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #198754;
+            --warning: #ffc107;
+            --info: #0dcaf0;
+            --gradient-start: #4e54c8;
+            --gradient-end: #8f94fb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            color: white;
+            font-size: 1.2rem;
+            z-index: 10;
+        }
+        
+        .header-content {
+            text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .header h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Slideshow */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .slideshow {
+            display: flex;
+            transition: transform 1s ease;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+        }
+        
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 2rem;
+        }
+        
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 1rem;
+            transform: translateY(-50%);
+            z-index: 5;
+        }
+        
+        .slide-nav button {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        
+        .slide-nav button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .slide-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 5;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        /* Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .section-title i {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: var(--primary);
+            background: rgba(78, 84, 200, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        /* Course Overview */
+        .overview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .overview-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .course-features {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(78, 84, 200, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .feature-content h3 {
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Facilities */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .facility-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .facility-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .facility-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .facility-card:hover .facility-img img {
+            transform: scale(1.05);
+        }
+        
+        .facility-content {
+            padding: 1.5rem;
+        }
+        
+        .facility-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        /* Curriculum */
+        .accordion {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-item {
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .accordion-header {
+            background: #f8fafc;
+        }
+        
+        .accordion-button {
+            padding: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .accordion-button:hover {
+            background: rgba(78, 84, 200, 0.05);
+        }
+        
+        .accordion-button::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            transition: transform 0.3s;
+        }
+        
+        .accordion-button.collapsed::after {
+            transform: rotate(-90deg);
+        }
+        
+        .accordion-content {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .accordion-content.show {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .module-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .module-list li::before {
+            content: '\f105';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        /* Enrollment CTA */
+        .enrollment-cta {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 12px;
+            margin: 3rem 0;
+        }
+        
+        .enrollment-cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .enrollment-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-enroll {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-enroll:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Inner slideshow container */
+.inner-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Inner slides (stacked on top of each other) */
+.inner-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeScale 12s infinite;
+}
+
+/* Animate multiple images in sequence */
+.inner-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+.inner-slide:nth-child(2) {
+  animation-delay: 4s;
+}
+.inner-slide:nth-child(3) {
+  animation-delay: 8s;
+}
+.feature-content p {
+  margin: 2px 0;
+  line-height: 1.4; /* keeps text readable */
+}
+
+
+
+/* Fade + scale effect */
+@keyframes fadeScale {
+  0%   { opacity: 0; transform: scale(1); }
+  10%  { opacity: 1; transform: scale(1.05); }
+  30%  { opacity: 1; transform: scale(1.1); }
+  40%  { opacity: 0; transform: scale(1.1); }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+        
+        /* Footer */
+        .footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .slide {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem 0;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .course-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .slide {
+                height: 300px;
+            }
+            
+            .slide-overlay {
+                padding: 1rem;
+            }
+            
+            .section-title {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .section-title i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .slide {
+                height: 250px;
+            }
+            
+            .slide-nav button {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .enrollment-cta {
+                padding: 2rem 1rem;
+            }
+            
+            .enrollment-cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn-enroll {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="../index.html" class="back-button" onclick="window.history.back()">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        
+        <div class="header-content">
+            <div class="course-icon">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h1>Information And Communication Technology</h1>
+            <p>Master the skills needed for a successful career in electrical systems</p>
+            
+            <div class="course-meta">
+                <div class="meta-item">
+                    <i class="far fa-clock"></i>
+                    <span>Long Course 2 Years</span>
+
+                </div>
+                 <div class="meta-item">
+                    <i class="far fa-clock"></i>
+                    <span> Short Course 6 Mothns</span>
+                    
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-certificate"></i>
+                    <span>VETA Certificate</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Hands-on Training</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slideshow -->
+<!-- Slideshow -->
+<div class="slideshow-container">
+  <div class="slideshow" id="slideshow">
+
+    <!-- Outer Slide 1 -->
+    <div class="slide">
+      <!-- Inner slideshow -->
+      <div class="inner-slideshow">
+        <img src="../assets/img/course/computer_course/computer1.jpg" class="inner-slide">
+        <img src="../assets/img/course/computer_course/ict1.jpg" class="inner-slide">
+        <img src="../assets/img/course/computer_course/ict2.jpg" class="inner-slide">
+      </div>
+      <div class="slide-overlay">
+        <h2>Modern Training Facilities</h2>
+        <p>Our students learn using industry-standard equipment</p>
+      </div>
+    </div>
+
+    <!-- Outer Slide 2 -->
+    <div class="slide">
+      <div class="inner-slideshow">
+        <img src="../assets/img/course/computer_course/ict3.jpg" class="inner-slide">
+          <img src="../assets/img/course/computer_course/ict4.jpg" class="inner-slide">
+            <img src="../assets/img/course/computer_course/ict5.jpg" class="inner-slide">
+      </div>
+      <div class="slide-overlay">
+        <h2>Hands-on Learning Experience</h2>
+        <p>Practical training from experienced instructors</p>
+      </div>
+    </div>
+
+    <!-- Outer Slide 3 -->
+    <div class="slide">
+      <div class="inner-slideshow">
+      <img src="../assets/img/course/computer_course/ict6.jpg" class="inner-slide">
+        <img src="../assets/img/course/computer_course/ict7.jpg" class="inner-slide">
+          <img src="../assets/img/course/computer_course/ict8.jpg" class="inner-slide">
+      </div>
+      <div class="slide-overlay">
+        <h2>Excellent Career Prospects</h2>
+        <p>Graduates are in high demand in the job market</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Outer Navigation -->
+  <div class="slide-nav">
+    <button id="prev-slide"><i class="fas fa-chevron-left"></i></button>
+    <button id="next-slide"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <!-- Outer Indicators -->
+  <div class="slide-indicators" id="indicators">
+    <div class="indicator active"></div>
+    <div class="indicator"></div>
+    <div class="indicator"></div>
+  </div>
+</div>
+
+
+    <div class="container">
+        <!-- Course Overview -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-info-circle"></i>
+                <h2>Course Overview</h2>
+            </div>
+            
+            <div class="overview-content">
+              <div class="overview-text">
+    <p>Our Information Technology course provides comprehensive training in computer systems, software, and networks. Students will gain both theoretical knowledge and practical skills needed for a successful career in the IT industry.</p>
+    <p>The program covers computer fundamentals, networking, database management, cybersecurity, and software applications. Graduates will be prepared for various roles in technical support, system administration, programming, and IT management.</p>
+    <p>With a focus on real-world applications, our course ensures that students are job-ready upon completion. Our experienced instructors provide personalized guidance to help each student succeed in the fast-growing technology sector.</p>
+</div>
+
+                
+                <div class="course-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Course Duration</h3>
+                            <p>2 years (4 semesters)</p>
+                            <p>6 months (Short Course)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Certification</h3>
+                            <p>Vocational Education and Training Authority (VETA)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Schedule Options</h3>
+                            <p>Full-time, Part-time, and Evening classes available</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h3>Class Size</h3>
+                            <p>Limited to 20 students for personalized attention</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Facilities -->
+        <div class="section">
+            <div class="section-title">
+                <i class="fas fa-building"></i>
+                <h2>Training Facilities</h2>
+            </div>
+            
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-img">
+                        <img src="../assets/img/course/computer_course/ict8.jpg" alt="Electrical Lab">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Modern Electrical Lab</h3>
+                        <p>Fully equipped with the latest tools and equipment for hands-on training.</p>
+                    </div>
+                </div>
+                
+                <div class="facility-card">
+                    <div class="facility-img">
+                <img src="../assets/img/course/computer_course/ict7.jpg" alt="Workshop">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Practical Workshop</h3>
+                        <p>Spacious workshop for practicing installation techniques and troubleshooting.</p>
+                    </div>
+                </div>
+                
+                <!-- <div class="facility-card">
+                    <div class="facility-img">
+                        <img src="../assets/img/course/elecrical_course/umeme0.jpg" alt="Classroom">
+                    </div>
+                    <div class="facility-content">
+                        <h3>Smart Classrooms</h3>
+                        <p>Technology-enhanced learning environments with interactive displays.</p>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        
+
+        
+        <!-- Enrollment CTA -->
+        <div class="enrollment-cta">
+            <h2>Start Your ICT Career Today</h2>
+            <p>Join our next intake and gain the skills needed for a successful career in Information And Communication Technology. Limited seats available.</p>
+            <button class="btn-enroll">Enroll Now</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p>© 2023 Dodoma Vocational Training Centre. All rights reserved.</p>
+            <p>P.O. Box 15, Dodoma, Tanzania</p>
+            <p>Phone: 0762 08 36 06 / 0766 98 76 88</p>
+            <p>Email: jemimanchimbi@yahoo.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slideshow = document.getElementById('slideshow');
+            const slides = document.querySelectorAll('.slide');
+            const indicators = document.querySelectorAll('.indicator');
+            const prevButton = document.getElementById('prev-slide');
+            const nextButton = document.getElementById('next-slide');
+            
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Ensure index is within bounds
+                if (index < 0) {
+                    index = slideCount - 1;
+                } else if (index >= slideCount) {
+                    index = 0;
+                }
+                
+                // Update slideshow position
+                slideshow.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    if (i === index) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+                
+                currentSlide = index;
+            }
+            
+            // Next slide function
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+            
+            // Previous slide function
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+            
+            // Set up event listeners
+            nextButton.addEventListener('click', nextSlide);
+            prevButton.addEventListener('click', prevSlide);
+            
+            // Set up indicator clicks
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    showSlide(index);
+                });
+            });
+            
+            // Auto advance slides
+            setInterval(nextSlide, 8000);
+            
+            // Accordion functionality
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    
+                    // Toggle the show class on the content
+                    content.classList.toggle('show');
+                    
+                    // Toggle the collapsed class on the button
+                    button.classList.toggle('collapsed');
+                });
+            });
+            
+            // Enroll button functionality
+            const enrollButton = document.querySelector('.btn-enroll');
+            enrollButton.addEventListener('click', () => {
+                alert('Enrollment process would start here. This would typically redirect to an enrollment form.');
+            });
+        });
+    </script>
+</body>
+</html>

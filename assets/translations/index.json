@@ -1,0 +1,330 @@
+{
+  "en": {
+    "nav-home": "Home",
+    "nav-courses": "All Courses",
+    "nav-apply": "Apply Now",
+    "nav-about": "About Us",
+    "nav-login": "Log in",
+    "nav-contact": "Contact",
+    "page-title": "Welcome to Nice School",
+    "welcome-msg": "Welcome to Dodoma Vocational Training Centre – officially registered by NACTEVET with registration number",
+    "send-us-msg": "Send Us WhatsApp Message",
+    "why-choose-us": "Why Choose Us",
+  "graduate-employment": "Graduate Employment",
+  "international-partners": "International Partners",
+  "student-faculty-ratio": "Student-Faculty Ratio",
+  "programs": "Programs",
+  "offer-electrical-discount": "50% Off on Electrical Installation Course - Enroll Now!",
+  "offer-free-toolkit": "Free Toolkit for First 20 Registrations!",
+  "offer-evening-classes": "Evening Classes Now Available - Flexible Schedule!",
+  "offer-job-assistance": "Job Placement Assistance for All Graduates!",
+  "offer-early-discount": "Special Discount for Early Registration - Limited Time!",
+      "about-subtitle": "Dedicated to training competent professionals ready for the future workforce.",
+  "about-title-main": "Education, Skills",
+  "about-title-sub": "And Attitude Change",
+  "about-years": "Years",
+  "about-students": "Students",
+  "about-faculty": "Faculty",
+  "principal-name": "Dr. Elizabeth Morgan",
+  "principal-title": "Principal",
+  "about-campus-life": "Campus Life",
+  "about-students-img": "Students",
+  "our-mission-title": "Our Mission",
+  "our-mission-text": "Is to foster the success for our students through innovative and technological career. Oriented programs, structure, learning environment, flexible learning programs and flexible learning opportunities that promotes their excellence in a competitive global community.",
+  "our-vision-title": "Our Vision",
+  "our-vision-text": "Is to become one of the leading Vocation Training Centre in prepairing Students who are innovative, creative, techinical, competent and skillful in thier respective careers in a competitive community.",
+  "our-values-title": "Our Values",
+  "our-values-text": "Integrity: Honesty and ethics in everything we do; Excellence: Striving for the highest standards; Innovation: Creativity and new ideas encouraged; Respect: Embracing diversity and dignity for all; Collaboration: Teamwork and community engagement; Responsibility: Accountability in learning and actions.",
+   "featured-programs-title": "Featured Programs",
+  "featured-programs-subtitle": "Explore our short and long courses designed to build your skills and career.",
+
+  "filter-all-programs": "All Programs",
+  "filter-long-course": "Long Course",
+  "filter-short-course": "Short Course",
+
+    "program-badge": "Long & Short Course",
+  "program-image-alt": "Program",
+  "program-title-electrical": "Electrical Installation",
+  "program-long-duration": "Long Course: 2 Years",
+  "program-short-duration": "Short Course: 6 Months",
+  "program-description-electrical": "Learn the fundamentals of electrical installation and wiring, building practical skills for both residential and commercial projects.",
+  "program-btn-learn-more": "Learn More",
+
+   "program-badge-ict": "Long & Short Course",
+  "program-image-alt-ict": "Program",
+  "program-title-ict-line1": "Information and",
+  "program-title-ict-line2": "Communication Technology",
+  "program-long-duration-ict": "Long Course: 2 Years",
+  "program-short-duration-ict": "Short Course: 6 Months",
+  "program-description-ict": "Learn the fundamentals of information and communication technology, including networking, software, and practical IT skills.",
+  "program-btn-learn-more-ict": "Learn More",
+
+
+ "program-badge-secretarial": "Long & Short Course",
+  "program-image-alt-secretarial": "Program",
+  "program-title-secretarial-line1": "Secretarial and",
+  "program-title-secretarial-line2": "Computer",
+  "program-long-duration-secretarial": "Long Course: 2 Years",
+  "program-short-duration-secretarial": "Short Course: 6 Months",
+  "program-description-secretarial": "Develop administrative and computer skills, including office management, document handling, and professional communication.",
+  "program-btn-learn-more-secretarial": "Learn More",
+
+   "program-badge-computer": "Short Course",
+    "program-image-alt-computer": "Program",
+    "program-title-computer": "Computer Application",
+    "program-short-duration-computer": "Short Course: 6 Months",
+    "program-description-computer": "Learn practical computer applications including word processing, spreadsheets, presentations, and basic IT skills.",
+    "program-btn-learn-more-computer": "Learn More",
+
+        "program-badge-hotel": "Long & Short Course",
+    "program-image-alt-hotel": "Program",
+    "program-title-hotel": "Hotel Management",
+    "program-long-duration-hotel": "Long Course: 2 Years",
+    "program-short-duration-hotel": "Short Course: 6 Months",
+    "program-description-hotel": "Learn all aspects of hotel operations including Front Desk, Food & Beverage, Housekeeping, and Guest Services. Gain practical skills for managing and running hospitality establishments efficiently.",
+    "program-btn-learn-more-hotel": "Learn More",
+
+
+        "program-badge-driving": "Short Course",
+    "program-image-alt-driving": "Program",
+    "program-title-driving": "Driving",
+    "program-short-duration-driving": "Short Course: 6 Months",
+    "program-description-driving": "Learn essential driving skills, road safety, and traffic regulations to become a competent and responsible driver.",
+    "program-btn-learn-more-driving": "Learn More",
+
+
+
+    
+
+     "program-badge-english": "Short Course",
+    "program-image-alt-english": "Program",
+    "program-title-english": "English Course",
+    "program-short-duration-english": "Short Course: 6 Months",
+    "program-description-english": "Learn English grammar, speaking, writing, and comprehension skills for academic and professional success.",
+    "program-btn-learn-more-english": "Learn More",
+
+
+      "program-badge-typing": "Short Course",
+    "program-image-alt-typing": "Program",
+    "program-title-typing": "Typing",
+    "program-short-duration-typing": "Short Course: 6 Months",
+    "program-description-typing": "Learn essential typing skills, improve speed and accuracy for professional and academic use.",
+    "program-btn-learn-more-typing": "Learn More",
+
+     "program-badge-painting": "Short Course",
+    "program-image-alt-painting": "Program",
+    "program-title-painting-part1": "Painting and",
+    "program-title-painting-part2": "SignWriting",
+    "program-short-duration-painting": "Short Course: 6 Months",
+    "program-description-painting": "Learn painting techniques and signwriting skills for creative and professional expression.",
+    "program-btn-learn-more-painting": "Learn More",
+
+     "program-badge-hairdressing": "Short Course",
+    "program-image-alt-hairdressing": "Program",
+    "program-title-hairdressing": "Hair Dressing",
+    "program-duration-hairdressing": "6 Months",
+    "program-credits-hairdressing": "24 Credits",
+    "program-schedule-hairdressing": "Year-round",
+    "program-description-hairdressing": "Learn professional hair dressing techniques, styling, and salon management skills.",
+    "program-btn-learn-more-hairdressing": "Learn More",
+
+
+   "program-badge-tailoring": "Long & Short Course",
+    "program-image-alt-tailoring": "Program",
+    "program-title-tailoring": "Tailoring",
+    "program-duration-long-tailoring": "Long Course: 2 Years",
+    "program-duration-short-tailoring": "Short Course: 6 Months",
+    "program-description-tailoring": "Learn professional tailoring techniques including garment construction, sewing, and fashion design basics.",
+    "program-btn-learn-more-tailoring": "Learn More",
+
+
+        "program-badge-aluminium": "Long Course",
+    "program-image-alt-aluminium": "Program",
+    "program-title-aluminium": "Aluminium and Glass Works",
+    "program-duration-long-aluminium": "Long Course: 2 Years",
+    "program-description-aluminium": "Master techniques in aluminium fabrication and glass installation, including cutting, shaping, and fitting for windows, doors, and decorative structures.",
+    "program-btn-learn-more-aluminium": "Learn More",
+
+    "program-badge-masonry": "Short Course",
+    "program-image-alt-masonry": "Masonry and BrickLaying",
+    "program-title-masonry": "Masonry and BrickLaying",
+    "program-duration-masonry": "Short Course: 6 Months",
+    "program-description-masonry": "Learn the fundamentals of masonry and bricklaying, including construction techniques, material handling, and site safety.",
+    "program-btn-masonry": "Learn More",
+
+
+
+       "cta-title": "Ready to Join Our Community?",
+    "cta-description": "Become part of our vibrant learning environment and gain practical skills for your future career.",
+    "cta-btn-schedule": "Schedule a Visit",
+    "cta-btn-apply": "Apply Now"
+
+  
+
+  },
+  "sw": {
+    "nav-home": "Nyumbani",
+    "nav-courses": "Kozi Zote",
+    "nav-apply": "Ombi Sasa",
+    "nav-about": "Kuhusu Sisi",
+    "nav-login": "Ingia",
+    "nav-contact": "Wasiliana",
+    "page-title": "Karibu Nice School",
+    "welcome-msg": "Karibu Chuo Cha Mafunzo Dodoma Kilicho sajiliwa kwa usajili namba",
+    "send-us-msg": "Tutumie Ujumbe WhatsApp",
+      "why-choose-us": "Kwa Nini Utuchague",
+  "graduate-employment": "Ajira kwa Wahitimu",
+  "international-partners": "Washirika wa Kimataifa",
+  "student-faculty-ratio": "Uwiano wa Wanafunzi na Walimu",
+  "programs": "Kozi",
+    "offer-electrical-discount": "Punguzo la 50% kwa Kozi ya Ufundi Umeme - Jiunge Sasa!",
+  "offer-free-toolkit": "Seti ya Zana Bure kwa Usajili 20 wa Kwanza!",
+  "offer-evening-classes": "Masomo ya Jioni Sasa Yanapatikana - Ratiba Rahisi!",
+  "offer-job-assistance": "Msaada wa Kupata Ajira kwa Wahitimu Wote!",
+  "offer-early-discount": "Punguzo Maalum kwa Usajili wa Mapema - Muda Umewekewa Kiwango!",
+ 
+
+   "about-title-main": "Elimu, Ujuzi",
+  "about-title-sub": "Na Mabadiliko ya Mtazamo",
+  "about-subtitle": "Tumejikita katika kufundisha wataalamu wenye weledi walioko tayari kwa soko la ajira la baadaye.",
+  "about-years": "Miaka",
+  "about-students": "Wanafunzi",
+  "about-faculty": "Waalimu",
+  "principal-name": "Dkt. Elizabeth Morgan",
+  "principal-title": "Mkuu wa Chuo",
+  "about-campus-life": "Maisha ya Chuo",
+  "about-students-img": "Wanafunzi",
+  "our-mission-title": "Dhamira Yetu",
+  "our-mission-text": "Ni kukuza mafanikio ya wanafunzi wetu kupitia taaluma bunifu na za kiteknolojia. Kupitia programu zilizopangwa, mazingira ya kujifunza, programu za kujifunza zinazobadilika na fursa zinazowapa nafasi ya kufikia ubora wao katika jamii ya ushindani ya kimataifa.",
+  "our-vision-title": "Maono Yetu",
+  "our-vision-text": "Ni kuwa moja ya Vituo Vinavyoongoza vya Mafunzo ya Ufundi Stadi katika kuwaandaa wanafunzi wabunifu, wabunifu, wenye ujuzi wa kiufundi, weledi na wenye ustadi katika taaluma zao kwenye jamii ya ushindani.",
+  "our-values-title": "Thamani Zetu",
+  "our-values-text": "Uadilifu: Uaminifu na maadili katika kila kitu tunachofanya; Ubora: Kufikia viwango vya juu zaidi; Ubunifu: Ubunifu na mawazo mapya yanahimizwa; Heshima: Kukumbatia utofauti na hadhi ya kila mtu; Ushirikiano: Kazi ya pamoja na ushirikishwaji wa jamii; Uwajibikaji: Uwajibikaji katika kujifunza na vitendo.",
+   "featured-programs-title": "Programu Zinazotambulika",
+  "featured-programs-subtitle": "Chunguza kozi zetu fupi na ndefu zilizoundwa kukuza ujuzi wako na taaluma yako.",
+
+   "filter-all-programs": "Kozi Zote",
+  "filter-long-course": "Kozi Ndefu",
+  "filter-short-course": "Kozi Fupi",
+
+    "program-badge": "Kozi Ndefu & Fupi",
+  "program-image-alt": "Programu",
+  "program-title-electrical": "Usakinishaji Umeme",
+  "program-long-duration": "Kozi Ndefu: Miaka 2",
+  "program-short-duration": "Kozi Fupi: Miezi 6",
+  "program-description-electrical": "Jifunze misingi ya usakinishaji na waya za umeme, ukijenga ujuzi wa vitendo kwa miradi ya makazi na kibiashara.",
+  "program-btn-learn-more": "Jifunze Zaidi",
+
+   "program-badge-ict": "Kozi Ndefu & Fupi",
+  "program-image-alt-ict": "Programu",
+  "program-title-ict-line1": "Taarifa na",
+  "program-title-ict-line2": "Teknolojia ya Mawasiliano",
+  "program-long-duration-ict": "Kozi Ndefu: Miaka 2",
+  "program-short-duration-ict": "Kozi Fupi: Miezi 6",
+  "program-description-ict": "Jifunze misingi ya taarifa na teknolojia ya mawasiliano, ikijumuisha mtandao, programu, na ujuzi wa vitendo wa IT.",
+  "program-btn-learn-more-ict": "Jifunze Zaidi",
+
+
+   "program-badge-secretarial": "Kozi Ndefu & Fupi",
+  "program-image-alt-secretarial": "Programu",
+  "program-title-secretarial-line1": "Ufahamu na",
+  "program-title-secretarial-line2": "Kompyuta",
+  "program-long-duration-secretarial": "Kozi Ndefu: Miaka 2",
+  "program-short-duration-secretarial": "Kozi Fupi: Miezi 6",
+  "program-description-secretarial": "Tengeneza ujuzi wa utawala na kompyuta, ikijumuisha usimamizi wa ofisi, kushughulikia nyaraka, na mawasiliano ya kitaalamu.",
+  "program-btn-learn-more-secretarial": "Jifunze Zaidi",
+
+
+    "program-badge-computer": "Kozi Fupi",
+    "program-image-alt-computer": "Programu",
+    "program-title-computer": "Programu za Kompyuta",
+    "program-short-duration-computer": "Kozi Fupi: Miezi 6",
+    "program-description-computer": "Jifunze matumizi ya vitendo ya kompyuta ikiwa ni pamoja na maandishi, lahajedwali, uwasilishaji, na ujuzi wa msingi wa IT.",
+    "program-btn-learn-more-computer": "Jifunze Zaidi",
+
+
+     "program-badge-hotel": "Kozi Ndefu & Fupi",
+    "program-image-alt-hotel": "Programu",
+    "program-title-hotel": "Usimamizi wa Hoteli",
+    "program-long-duration-hotel": "Kozi Ndefu: Miaka 2",
+    "program-short-duration-hotel": "Kozi Fupi: Miezi 6",
+    "program-description-hotel": "Jifunze vipengele vyote vya uendeshaji wa hoteli ikiwa ni pamoja na Mapokezi, Chakula & Vinywaji, Usafi wa Vyumba, na Huduma kwa Wageni. Pata ujuzi wa vitendo wa kusimamia na kuendesha taasisi za ukarimu kwa ufanisi.",
+    "program-btn-learn-more-hotel": "Jifunze Zaidi",
+
+
+     "program-badge-driving": "Kozi Fupi",
+    "program-image-alt-driving": "Programu",
+    "program-title-driving": "Udereva",
+    "program-short-duration-driving": "Kozi Fupi: Miezi 6",
+    "program-description-driving": "Jifunze ujuzi muhimu wa kuendesha gari, usalama barabarani, na sheria za trafiki ili uwe dereva mwenye ujuzi na uwajibikaji.",
+    "program-btn-learn-more-driving": "Jifunze Zaidi",
+
+
+
+        "program-badge-english": "Kozi Fupi",
+    "program-image-alt-english": "Programu",
+    "program-title-english": "Kozi ya Kiingereza",
+    "program-short-duration-english": "Kozi Fupi: Miezi 6",
+    "program-description-english": "Jifunze sarufi ya Kiingereza, kuzungumza, kuandika, na uelewa kwa mafanikio ya kielimu na kitaaluma.",
+    "program-btn-learn-more-english": "Jifunze Zaidi",
+
+
+      "program-badge-typing": "Kozi Fupi",
+    "program-image-alt-typing": "Programu",
+    "program-title-typing": "Kuandika Kwa Haraka",
+    "program-short-duration-typing": "Kozi Fupi: Miezi 6",
+    "program-description-typing": "Jifunze ujuzi muhimu wa kuandika haraka, boresha kasi na usahihi kwa matumizi ya kitaaluma na kielimu.",
+    "program-btn-learn-more-typing": "Jifunze Zaidi",
+
+
+      "program-badge-painting": "Kozi Fupi",
+    "program-image-alt-painting": "Programu",
+    "program-title-painting-part1": "Uchoraji na",
+    "program-title-painting-part2": "Uandikaji wa Alama",
+    "program-short-duration-painting": "Kozi Fupi: Miezi 6",
+    "program-description-painting": "Jifunze mbinu za uchoraji na uandishi wa alama kwa uundaji na taaluma.",
+    "program-btn-learn-more-painting": "Jifunze Zaidi",
+
+
+        "program-badge-hairdressing": "Kozi Fupi",
+    "program-image-alt-hairdressing": "Programu",
+    "program-title-hairdressing": "Ususi Na Urembo",
+    "program-duration-hairdressing": "Miezi 6",
+    "program-credits-hairdressing": "Mikopo 24",
+    "program-schedule-hairdressing": "Mwaka mzima",
+    "program-description-hairdressing": "Jifunze mbinu za urembo wa nywele, mitindo, na uongozi wa salon.",
+    "program-btn-learn-more-hairdressing": "Jifunze Zaidi",
+
+     "program-badge-tailoring": "Kozi Ndefu na Fupi",
+    "program-image-alt-tailoring": "Programu",
+    "program-title-tailoring": "Ushonaji",
+    "program-duration-long-tailoring": "Kozi Ndefu: Miaka 2",
+    "program-duration-short-tailoring": "Kozi Fupi: Miezi 6",
+    "program-description-tailoring": "Jifunze mbinu za ushoni wa kitaalamu ikiwa ni pamoja na uundaji wa nguo, kushona, na misingi ya muundo wa mitindo.",
+    "program-btn-learn-more-tailoring": "Jifunze Zaidi",
+
+     "program-badge-aluminium": "Kozi Ndefu",
+    "program-image-alt-aluminium": "Programu",
+    "program-title-aluminium": "Kazi za Aluminium na Kioo",
+    "program-duration-long-aluminium": "Kozi Ndefu: Miaka 2",
+    "program-description-aluminium": "Jifunze mbinu za utengenezaji wa aluminium na ufungaji wa vioo, ikiwa ni pamoja na kukata, kuunda, na kufunga madirisha, milango, na muundo wa mapambo.",
+    "program-btn-learn-more-aluminium": "Jifunze Zaidi",
+
+
+      "program-badge-masonry": "Kozi Fupi",
+    "program-image-alt-masonry": "Ujenzi",
+    "program-title-masonry": "Ujenzi",
+    "program-duration-masonry": "Kozi Fupi: Miezi 6",
+    "program-description-masonry": "Jifunze misingi/ujuzi wa ujenzi ikiwemo mbinu za ujenzi, utunzaji wa vifaa, na usalama kazini.",
+    "program-btn-masonry": "Jifunze Zaidi",
+
+     "cta-title": "Uko Tayari Kujiunga na Jamii Yetu?",
+    "cta-description": "Jiunge na mazingira yetu ya kujifunza yenye nguvu na upate ujuzi wa vitendo kwa ajili ya kazi yako ya baadaye.",
+    "cta-btn-schedule": "Panga Ziara",
+    "cta-btn-apply": "Tuma Maombi Sasa"
+  
+
+
+
+  }
+}

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Dodoma VTC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4e54c8;
+            --primary-dark: #3f42b6;
+            --secondary: #6c757d;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #198754;
+            --warning: #ffc107;
+            --info: #0dcaf0;
+            --gradient-start: #4e54c8;
+            --gradient-end: #8f94fb;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="white" /></svg>');
+            opacity: 0.1;
+        }
+        
+        .college-logo {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .college-logo i {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        
+        .header h1 {
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .course-category {
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .category-title i {
+            font-size: 1.8rem;
+            margin-right: 1rem;
+            color: var(--primary);
+            background: rgba(78, 84, 200, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .category-title h2 {
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .course-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+        
+        .course-duration {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .course-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .course-title {
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+        
+        .course-description {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .course-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .course-type {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(78, 84, 200, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        .btn-enroll {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-enroll:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .back-button {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            background: var(--primary-dark);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .course-card {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .course-card:nth-child(1) { animation-delay: 0.1s; }
+        .course-card:nth-child(2) { animation-delay: 0.2s; }
+        .course-card:nth-child(3) { animation-delay: 0.3s; }
+        .course-card:nth-child(4) { animation-delay: 0.4s; }
+        .course-card:nth-child(5) { animation-delay: 0.5s; }
+        .course-card:nth-child(6) { animation-delay: 0.6s; }
+        .course-card:nth-child(7) { animation-delay: 0.7s; }
+        .course-card:nth-child(8) { animation-delay: 0.8s; }
+        .course-card:nth-child(9) { animation-delay: 0.9s; }
+        .course-card:nth-child(10) { animation-delay: 1s; }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1.5rem 0;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .category-title {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-title i {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .back-button {
+                bottom: 1rem;
+                left: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .course-content {
+                padding: 1.2rem;
+            }
+            
+            .course-actions {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .btn-enroll {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Back Button -->
+    <a href="#" class="back-button" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="college-logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1>Our Courses</h1>
+        <p>Dodoma Vocational Training Centre - Quality Education for Future Careers</p>
+    </div>
+
+    <div class="container">
+        <!-- Long Courses -->
+        <div class="course-category">
+            <div class="category-title">
+                <i class="fas fa-graduation-cap"></i>
+                <h2>Long Courses</h2>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Secretary & Computer">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Secretary & Computer</h3>
+                        <p class="course-description">Comprehensive training in office administration, computer applications, and communication skills.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="assets/img/education/electricity.png" alt="Electrical Installation" onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80'">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Electrical Installation</h3>
+                        <p class="course-description">Learn electrical systems installation, maintenance, and safety procedures.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1577401239170-897942555fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Tailoring">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Tailoring</h3>
+                        <p class="course-description">Master the art of fashion design, pattern making, and garment construction.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="ICT">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">ICT</h3>
+                        <p class="course-description">Comprehensive Information and Communication Technology training.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1571613316887-6f8d5cbf7ef7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Painting">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Painting</h3>
+                        <p class="course-description">Learn professional painting techniques for residential and commercial applications.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1541979667479-339a9c826894?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Masonry">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Masonry</h3>
+                        <p class="course-description">Learn bricklaying, stonework, and construction techniques.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Front Office Operation">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Front Office Operation</h3>
+                        <p class="course-description">Training in hospitality management and front desk operations.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Food Production">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Food Production</h3>
+                        <p class="course-description">Culinary arts training with focus on food preparation and kitchen management.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Food and Beverage Services">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Food and Beverage Services</h3>
+                        <p class="course-description">Learn restaurant service techniques and beverage management.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Housekeeping and Laundry">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Housekeeping and Laundry</h3>
+                        <p class="course-description">Training in professional cleaning, laundry services, and facility maintenance.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1620625515032-6e5b5cfb29a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Aluminum and Glass Works">
+                        <div class="course-duration">2 Years</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Aluminum and Glass Works</h3>
+                        <p class="course-description">Learn fabrication and installation of aluminum and glass structures.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Long Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Short Courses -->
+        <div class="course-category">
+            <div class="category-title">
+                <i class="fas fa-certificate"></i>
+                <h2>Short Courses</h2>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Computer Application">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Computer Application</h3>
+                        <p class="course-description">Basic to advanced computer skills training for office productivity.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Front Office Operation">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Front Office Operation</h3>
+                        <p class="course-description">Focused training on reception and guest services.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Food Production">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Food Production</h3>
+                        <p class="course-description">Short course focused on culinary skills and food preparation.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Food and Beverage Services">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Food and Beverage Services</h3>
+                        <p class="course-description">Training in food service and customer hospitality.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Housekeeping and Laundry">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Housekeeping and Laundry</h3>
+                        <p class="course-description">Short course in professional cleaning and laundry services.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="ICT">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">ICT</h3>
+                        <p class="course-description">Focused Information and Communication Technology training.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Typing">
+                        <div class="course-duration">3 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Typing</h3>
+                        <p class="course-description">Develop speed and accuracy in keyboard typing.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Secretary & Computer">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Secretary & Computer</h3>
+                        <p class="course-description">Short course in office administration and computer skills.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Project Management">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Project Management</h3>
+                        <p class="course-description">Learn essential project planning and management skills.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="assets/img/education/electricity.png" alt="Electrical Installation" onerror="this.src='https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80'">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Electrical Installation</h3>
+                        <p class="course-description">Short course in basic electrical systems installation.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1577401239170-897942555fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Tailoring">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Tailoring</h3>
+                        <p class="course-description">Short course in basic garment construction and alterations.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Driving">
+                        <div class="course-duration">3 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Driving</h3>
+                        <p class="course-description">Professional driving lessons and road safety training.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1620625515032-6e5b5cfb29a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Aluminum and Glass Works">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Aluminum and Glass Works</h3>
+                        <p class="course-description">Short course in basic aluminum and glass fabrication.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1596703263926-eb0762ee17d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Hair Dressing and Beautification">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Hair Dressing and Beautification</h3>
+                        <p class="course-description">Learn hairstyling, beauty treatments, and salon management.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="https://images.unsplash.com/photo-1541979667479-339a9c826894?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" alt="Masonry and Bricklaying">
+                        <div class="course-duration">6 Months</div>
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Masonry and Bricklaying</h3>
+                        <p class="course-description">Short course in basic construction and bricklaying techniques.</p>
+                        <div class="course-actions">
+                            <span class="course-type">Short Course</span>
+                            <button class="btn-enroll">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <p>© 2023 Dodoma Vocational Training Centre. All rights reserved.</p>
+            <p>P.O. Box 15, Dodoma, Tanzania | Phone: 0762 08 36 06 / 0766 98 76 88 | Email: jemimanchimbi@yahoo.com</p>
+        </div>
+    </div>
+
+    <script>
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            courseCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // Enroll button functionality
+            const enrollButtons = document.querySelectorAll('.btn-enroll');
+            enrollButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const courseTitle = this.closest('.course-card').querySelector('.course-title').textContent;
+                    alert(`You've selected: ${courseTitle}\nThis would open a detailed course page or enrollment form.`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
