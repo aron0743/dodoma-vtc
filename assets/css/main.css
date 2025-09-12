@@ -232,7 +232,7 @@ h6 {
   font-size: 28px;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 0px;
   background: linear-gradient(45deg, #f09205, #f17006, #e1f00d);
   -webkit-background-clip: text;
   background-clip: text;
@@ -1001,7 +1001,7 @@ section,
     background-color: #db32a9;
   }
   87.5% {
-    background-color: #343a40;
+    background-color: #6e0339;
   }
   100% {
     background-color: #FFD700;
