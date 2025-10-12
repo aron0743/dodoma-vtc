@@ -8365,6 +8365,21 @@ section,
   background-color: var(--accent-color);
   color: var(--contrast-color);
 }
+.card-logo {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.logo-img {
+  max-width: 80px;
+  height: auto;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo-img:hover {
+  transform: scale(1.2);
+}
 
 /*--------------------------------------------------------------
 # Error 404 Section
