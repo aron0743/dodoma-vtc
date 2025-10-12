@@ -591,6 +591,20 @@
                 font-size: 1rem;
             }
         }
+         .header-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/img/logo.jpg');
+    background-repeat: repeat;
+    background-size: 200px; 
+    opacity: 0.2; 
+    z-index: 1;
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
